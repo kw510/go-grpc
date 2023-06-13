@@ -22,6 +22,8 @@ fmt.Println(status.Convert(err))
 
 # Why
 As of current, gRPC status codes are not carried via the `fmt.Errorf` function, nor can you override the code later. If you try to do it as of now, using the sample above, this is the best you can achieve:
+
+Update: I found out there are carried via `fmt.Errorf` function :tada: This wrapper lib will just remove the code from the error message to make it look pretty. It loses the history of the code, but at least its nice to look at :wink:
 ```go
 s := status.New(codes.DeadlineExceeded, "error message")
 fmt.Println(s)
